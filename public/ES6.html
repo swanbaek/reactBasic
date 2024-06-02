@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ES6 (2015) -ECMAScript의 약자로 자바스크립트 표준,규격을 나타내는 용어</h1>
+    <p>ECMAScript는 표준화된 스크립팅 언어이고 자바스크립트는 그 구현 중 하나다.</p>
+    <hr>
+    <script>
+        //[1] 상수 및 변수 - let, const 키워드
+        // 상수: 변경이 불가능한 변수. const 키워드로 정의한다. 재할당 불가
+        const PI=3.141592;
+        document.write(`PI : ${PI} <br>`);
+        //TypeError: Assignment to constant variable.
+        // PI=50; 에러 발생
+        //const는 블럭 범위를 가진다. 정의된 블럭 내에서만 사용할 수 있다.
+        var count=10;
+        if(count>0){
+            const total=count*2; //상수의 scope가 if문 블럭까지
+            document.write('total 1: ', total,"<br>")
+        }
+        // document.write('total 2: ', total,"<br>");//오류 발생. 범위 벗어남
+
+        // 다음 예는 const가 객체나 배열일때
+        const obj={num: 3};
+        document.write( ' obj.num 1: ', obj.num,'<br>');
+        obj.num=500;//const가 객체나 배열일떄는 그 내용을 바꿀 수 있다.
+        document.write( ' obj.num 2: ', obj.num,'<br>');
+        document.write("<hr>")  
+
+         //var로 선언된 변수는 함수 scope로 선언된 함수내에서만 유효(지역변수). 함수 밖에서 선언되면 전역 scope를 갖는다(전역변수)
+        //또한 같은 scope 내에서 변수를 다시 선언할 수 있다.==> 의도치 않은 동작을 유발할 수 있음
+        //반면 let변수는 block scope를 갖는다. 그것이 선언된 블럭({}) 내에서만 유효하자. 블럭을 벗어나면 사용 불가.
+        //let는 같은 scope내에서 변수를 다시 선언할 수 없다. => 코드 예측 가능성을 높이고 오류를 줄임
+        var num1=10;
+        document.write('num1: ',num1,"<br>")
+        var num1=20;//재선언, 재할당  
+        document.write('num1: ',num1,"<br>")
+        num1=30;//재할당
+        document.write('num1: ',num1,"<br>")
+
+        let num2=100;
+        //let num2=300;//재선언 불가
+        document.write('num2: ',num2,"<br>")
+        num2=300;//재할당은 가능
+        document.write('num2: ',num2,"<br>")
+
+       
+        if(true){
+            var x=10;
+            let y=20;
+        }
+        document.write('x: ',x,'<br>')
+        // document.write('y: ',y,'<br>')//에러
+
+        document.write("<hr>")
+         // [2] 템플릿 리터럴
+        // 백틱 ` ` 으로 사용가능하다. 작은따옴표('')나 큰따옴표("") 대신 백틱(``)을 이용해야 한다.
+        // { } 중괄호 앞에 달러표시를 통해 자바스크립트 표현식 가능==>${변수}
+        // document.write('num1 : ' + num1 + ', num2 : ' + num2 + ', num3 : ' + num3);
+        document.write(`num1 : ${num1}, num2 : ${num2}, PI : ${PI} <br>`);
+
+
+         // [3] 화살표 함수
+         function myFunc(num3){
+            return `num3 : ${num3} <br>`;
+        }
+
+        const myFunc1 = (num3) => {
+            return `num3 : ${num3} <br>`;
+        }
+
+        const myFunc2 = num3 => `num3 : ${num3} <br>`;
+
+        let num3=500;
+        document.write(myFunc(num3));
+        document.write(myFunc1(num3));
+        document.write(myFunc2(num3));
+
+        //다음 함수를 화살표 함수(foo2)로 작성해 보세요.
+        //인수(매개변수)가 2개 이상일 경우는 인수를 괄호로 감싸야 함
+        function foo1(x, y){
+            return x*y;
+        }
+        const foo2=(x,y)=> x*y;
+
+        document.write(foo1(2,5),"<br>")
+        document.write(foo2(2,5),"<br>")
+
+        //인수가 없을 경우는
+        function sayHello(){
+            document.write("Hello");
+        }
+        sayHello();
+
+        const sayHi=()=>{
+            document.write(`<p>Hi</p>`)
+        }
+        sayHi();
+
+         // [4] 구조 분해 할당
+        //  JavaScript의 구조 분해 할당(Destructuring Assignment)은 배열이나 객체의 속성을 쉽게 분해하여 변수에 할당하는 편리한 문법
+         const person = {
+            name : "홍길동",
+            age : 20,
+            addr : "서울"
+        }
+
+        document.write(`name: ${person.name}, age: ${person.age}, addr: ${person.addr}<br>`);
+        //객체 구조분해 할당
+        const {name, addr, age} = person;
+        document.write(`이름: ${name}, 나이: ${age}, 주소: ${addr}`)
+        document.write("<hr>");
+        //배열 구조분해 할당 
+        const arr=[1,2,3];
+        const [a, b, c] = arr;
+        document.write(a, b, c,'<br>')
+        
+        //일부 요소만 할당
+        const [y,z]=arr;
+        document.write(y,"<br>");
+        document.write(z,"<br>");
+        
+        const [first,...rest]=arr;
+        document.write('first: ',first, ' rest: ', rest,"<br>")//first: 1, rest:[2,3]
+
+        // 기본값 할당
+        const [p, q, r, s = 4] = arr;
+        document.write(s,"<br>"); // 4 (배열에 요소가 없으면 기본값 할당)
+
+        const obj2 = { name: 'Alice', age: 25, city: 'Wonderland' };
+        // 속성 이름 변경
+        const { name: n, age: ag } = obj2;
+        document.write(n,"<br>"); // Alice
+        document.write(ag,"<br>"); // 25
+
+        // 중첩 객체 구조 분해
+        const user = {
+            id: 1,
+            profile: {
+                firstName: 'Alice',
+                lastName: 'Smith',
+            },
+        };
+
+        const {
+            profile: { firstName: fName, lastName: lName },
+        } = user;
+        document.write(fName,"<br>"); // Alice
+        document.write(lName,"<br>"); // Smith
+
+        // 객체 매개변수 구조 분해
+        function greet({ name, age }) {
+            document.write(`Hello, my name is ${name} and I am ${age} years old.<br>`);
+        }
+
+        const person2 = { name: 'Alice', age: 25 };
+        greet(person2); // Hello, my name is Alice and I am 25 years old.
+
+        // 배열 매개변수 구조 분해
+        function sum([a, b]) {
+            return a + b;
+        }
+
+        const numbers = [1, 2];
+        document.write(sum(numbers),"<br>"); // 3
+        document.write("<hr>")
+        // [5] Spread 연산자 : ... JavaScript의 스프레드 연산자(...)는 배열이나 객체를 펼치는 데 사용
+        // Array
+        let arr1 = [1, 2, 3, 4, 5];
+        let arr2 = [...arr1, 6, 7, 8, 9, 10];
+
+        document.write(arr2,"<br>");
+
+        const arr3 = [1, 2, 3];
+        const newArr = [0, ...arr3, 4];
+        document.write(newArr,"<br>"); // [0, 1, 2, 3, 4]
+        //object
+        const ob1 = { a: 1, b: 2 };
+        const ob2 = { ...ob1 }; //객체 복사
+        document.write(JSON.stringify(ob2),"<br>"); // { a: 1, b: 2 }
+        const ob3 ={c:4, d:5}
+        const merged ={...ob1, ...ob3};//객체 병합
+        console.log(merged);
+
+        const ob4={...ob1, b:3.1, y:5.3};//속성 추가 또는 덮어쓰기
+        console.log(ob4)//{a: 1, b: 3.1, y: 5.3}
+
+        // String
+        let str1 = 'react icia';
+        let str2 = [...str1];
+        document.write(str2);
+    </script>
+    
+</body>
+</html>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MyComp from './example/ex01'
+import MyComp from './component/ex01'
 //1. 클래스형으로 컴포넌트 구성해보기
 class App extends Component{
 

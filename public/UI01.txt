@@ -1,0 +1,23 @@
+ImageGallery react-bootstrap UI
+----------------------------------------
+<Container>
+    <Row>
+        <Col key={i} xs={12} sm={6} md={4} lg={3} className="mb-4">
+            <Card>
+                <Card.Img  variant="top"/>
+                <Card.Body>
+                    <Card.Title>Card Title</Card.Title>
+                    <Card.Text>
+                    Some quick example text to build on the card title and make up the
+                    bulk of the card's content.
+                    </Card.Text>
+                    <div className='text-center'>
+                    <Button variant="primary"  className="d-inline mr-2" size="sm">Update</Button>
+                    <Button variant="danger"  className="d-inline" size="sm">Remove</Button>
+                    </div>
+                </Card.Body>
+            </Card>
+        </Col>
+    </Row>
+</Container>
+------------------------------------------                    

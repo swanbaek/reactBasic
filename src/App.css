@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+.App-ul li{
+  list-style:none;
+}
+.header ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;  
+  background-color: #111;
+}
+.header li{
+  list-style:none;
+  padding: 1em;  
+}
+.header li a{
+  color:#fff;
+  text-decoration: none;
+}

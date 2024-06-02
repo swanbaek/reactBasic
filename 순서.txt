@@ -1,3 +1,4 @@
+[1]=========================================================
 # React소개
 # 개발환경 설정
 1. public/ES6.html  : React를 할때 꼭 알아야할 Ecmascript 6 문법을 살펴본다.
@@ -11,7 +12,7 @@ JSX 실습
 6. JsxEx6.js/App00.js  => 모듈 export /import
 7. JsxEx7.js/App00_1.js => inline 방식으로 스타일 적용
 8. JsxEx8.js/App00_1.js => 외부 css파일 참조하여 className으로 스타일 적용
----------------------------------
+[2]=========================================================
 1. ex01.js/App01.js => 클래스형 컴포넌트 작성/props사용
 2. ex02.js/App02.js => 함수형 컴포넌트 작성/props사용
 3. ex03.js/App03.js => state 사용1/useState훅
@@ -19,36 +20,46 @@ JSX 실습
 5. ex05.js/App05.js => 일반 데이터와 state 데이터 차이점 살펴보기
 6. ex06.js/App06.js => 여러 개의 useState 사용하기
 7. ex07.js/App07.js => 배열 state 를 하위 컴포넌트에 props로 전달하기. 댓글 컴포넌트 구성
-7. 실습 : 배열이용해 이미지 갤러리 구성해보기  
+8. 실습 : 배열이용해 이미지 갤러리 구성해보기  
      ex08.js/App08.js => 이미지 갤러리 CRUD (배열/객체 유형의 state 사용하기) 실습
-=========================================================
-8. 7번 실습 내용을 react-bootstrap 이용해 UI구성과 더불어 작성해보기     
-
-9. react-router-dom 설치후 브라우저 라우터 이용해 라우팅 하기  (Header.jsx, Home.jsx, MyComp1.jsx, MyComp2.jsx)
-10. 여러가지 이벤트 처리: onClick, onChange, onMouseOver, onMouseOut 등
-11. useParams훅 : 요청 파라미터 전달 useParam,  useEffect훅 잠시 사용해보기  
+[3]=========================================================
+1. 7번 실습 내용을 react-bootstrap 이용해 UI구성과 더불어 작성해보기     
+2. react-bootstrap Component 사용하여 UI구성하기
+3. react-router-dom 설치후 브라우저 라우터 이용해 라우팅 하기  (Header.jsx, Home.jsx, MyComp1.jsx, MyComp2.jsx)
+4. 여러가지 이벤트 처리: onClick, onChange, onMouseOver, onMouseOut 등
+5. useParams훅 : 요청 파라미터 전달 useParam,  useEffect훅 잠시 사용해보기  
      ==> data/data 와 UserDetail.jsx /Header.jsx/App.jsx 살펴보기
-12. useSearchParam: useSearchParam, Boards.jsx/Header.jsx/App.jsx 살펴보기
-13_1. 클래스형 컴포넌트의 생명주기 살펴본 뒤 useEffect훅 사용해보기
-13_2. useEffect훅 : UseEffectHook.jsx, Timer.jsx
-14. useRef훅: UseRefHook.jsx, Side.jsx/App.js 참고
-15. useNavigate훅: UseNavigateHook.jsx, Side.jsx/App.js 참고
-16. useCallback 훅
-17. Context 
---------------------------------
-18. # 한줄 메모장 만들어보기 (DB연동하지 않고 배열 이용해서 CRUD해보기)
-[1] 데이터 source 가 배열일 경우 - 인 메모리 (데이터 휘발성)
-[2] 데이터를 외부에서 제공하는 데이터를 받아올 경우 - open api data  (Ajax 이용, cors 지원되지 않을 경우 proxy필요) *****
-[3] 데이터를 Database 서버에서 받아올 경우 (백엔드 필요)
---------------------------------
-19. 리액트로 REST API이용하기
-https://reqres.in/ 사이트와 연동해보기=> UserOne.jsx, Side.jsx/App.js참고
-20. fetch api 사용 : UserAll.jsx, Side.jsx/App.js참고
-21. axios 사용. OpenWeatherApi연동 : OpenWeather.jsx, Side.jsx/App.js참고
-[학생들 실습 과제=> 뉴스 RSS받아 오늘의 뉴스 출력하기]
-------------------------------
-22 # MySQL 연동하기
------------------------------
-23 # 회원가입
-24 # 로그인 연동
-25 # 게시판 작성 ****
+6. useSearchParam: useSearchParam, Boards.jsx/Header.jsx/App.jsx 살펴보기
+7. 실습 : 홈페이지 프로토타입 구성하기 (카카오 오븐 또는 피그마 이용)
+[4]=========================================================
+1. 클래스형 컴포넌트의 생명주기 살펴본 뒤 useEffect훅 사용해보기
+2. useEffect훅 : UseEffectHook.jsx, Timer.jsx
+3. useRef훅: UseRefHook.jsx, Side.jsx/App.js 참고
+4. useNavigate훅: UseNavigateHook.jsx, Side.jsx/App.js 참고
+5. useCallback 훅
+6. Context 
+7. # 한줄 메모장 만들어보기 (DB연동하지 않고 배열 이용해서 CRUD해보기)
+[5]=========================================================
+# 리액트로 REST API이용하기
+     [1] 데이터 source 가 배열일 경우 - 인 메모리 (데이터 휘발성)=> 한줄 메모장으로 실습
+     [2] 데이터를 외부에서 제공하는 데이터를 받아올 경우 - open api data  (Ajax 이용, cors 지원되지 않을 경우 proxy필요) *****
+     [3] 데이터를 Database 서버에서 받아올 경우 (백엔드 필요)
+1. https://reqres.in/ 사이트와 연동해보기=> UserOne.jsx, Side.jsx/App.js참고
+2. fetch api 사용 : UserAll.jsx, Side.jsx/App.js참고
+3. axios 사용. OpenWeatherApi연동 : OpenWeather.jsx, Side.jsx/App.js참고
+4. Naver Open Api 연동해보기
+7. 실습. [학생들 실습 과제=> 뉴스 RSS받아 오늘의 뉴스 출력하기]
+[6]=========================================================
+# MySQL 연동하기
+# Node Server 간단하게 만들기
+1.  게시판 CRUD ****
+2.  게시판 댓글 CRUD
+[7]=========================================================
+3.  회원가입
+4.  로그인 연동
+[8]=========================================================
+Redux 소개
+1. 간단한 Redux 사용 예제-Counter 
+2. 회원가입/로그인 리덕스 사용
+
+

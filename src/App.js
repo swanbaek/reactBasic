@@ -19,6 +19,8 @@ import UserOne from './component/UserOne'
 import PageNotFound from './component/PageNotFound'
 import UserAll from './component/UserAllPaging'
 import OpenWeather from './component/OpenWeather'
+import TodoApp from './component/todo/TodoApp';
+
 import BoardApp from './component/board/BoardApp'
 import BoardView from './component/board/BoardView'
 import BoardModify from './component/board/BoardModify'
@@ -58,6 +60,7 @@ function App() {
             <Route path="/ajax1/:id" element={<UserOne/>}/>
             <Route path="/ajax2" element={<UserAll/>}/>
             <Route path="/ajax3" element={<OpenWeather/>}/>
+            <Route path="/todo" element={<TodoApp/>}/>
             <Route path="/board2" element={<BoardApp/>}/>
             <Route path="/board2/:id" element={<BoardView/>}/>
             <Route path="/boardEdit/:id" element={<BoardModify/>}/>

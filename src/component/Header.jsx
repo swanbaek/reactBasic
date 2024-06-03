@@ -13,6 +13,8 @@ export default function Header() {
         <li><Link to="/gallery">Gallery</Link></li>
         <li><Link to="/users/100">User Detail</Link></li>
         <li><Link to="/boards?id=11&page=2&size=10">Go to Boards</Link></li>
+        <li><Link to="/todo">ToDo</Link></li>
+        <li><Link to="/board2">Boards & Reply</Link></li>
         </ul>        
     </div>
   )

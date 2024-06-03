@@ -38,7 +38,7 @@ JSX 실습
 4. useNavigate훅: UseNavigateHook.jsx, Side.jsx/App.js 참고
 5. useCallback 훅
 6. Context 
-7. # 한줄 메모장 만들어보기 (DB연동하지 않고 배열 이용해서 CRUD해보기)
+7. # 한줄 메모장  또는 Todo 앱 만들어보기 (DB연동하지 않고 배열 이용해서 CRUD해보기)
 [5]=========================================================
 # 리액트로 REST API이용하기
      [1] 데이터 source 가 배열일 경우 - 인 메모리 (데이터 휘발성)=> 한줄 메모장으로 실습

@@ -5,8 +5,8 @@ import axios from '../../lib/axiosCreate'
 import {Row, Col, Button, Card, Form} from 'react-bootstrap'
 import {AiFillHeart, AiFillDislike, AiOutlineHeart,AiOutlineDislike} from 'react-icons/ai'
 //react-icons  설치해야 사용 가능. npm i react-icons
-const BoardView = () => {
-
+const BoardView = (props) => {
+  
     const { id } = useParams(); // /board2/:id와 동일한 변수명으로 데이터를 꺼낼 수 있습니다.
     const [board, setBoard] = useState({});
 
@@ -20,6 +20,8 @@ const BoardView = () => {
         const board = await axios.get(`/boardView/${id}`);    
         console.log('board: ',board)    
         setBoard(board.data[0]);
+        
+        console.log('onMode====',props)
         }catch(err){
             alert('err: '+err.message)
         }
@@ -28,6 +30,7 @@ const BoardView = () => {
     useEffect(() => {
         getBoard();
         getReplies();
+       
     },[id]);
 
     const onDelete = async() => {

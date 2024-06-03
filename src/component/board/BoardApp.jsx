@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import BoardForm from './BoardForm'
-import BoardInfo from './BoardInfo'
-import {Link, useLocation} from 'react-router-dom'
 import BoardList from './BoardList';
 import BoardNav from './BoardNav';
 
@@ -11,7 +9,6 @@ import axios from '../../lib/axiosCreate'
 const BoardApp = () => {
 
     const [mode, setMode] =useState('list')
-    const location =useLocation();
     useEffect(()=>{
         
     },[mode])
@@ -74,10 +71,7 @@ const BoardApp = () => {
             }
             {
                 (mode==='write')&&<BoardForm onWrite={handleWrite}  onMode={handleMode}></BoardForm>
-            }
-            {
-                (mode==='info')&&<BoardInfo></BoardInfo>
-            }
+            }           
         </div>
     );
 };

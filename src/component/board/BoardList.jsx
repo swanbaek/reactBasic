@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../../lib/axiosCreate'
 import {Link} from 'react-router-dom';
-import { Table, Button} from 'react-bootstrap';
+import { Table, Button, Badge} from 'react-bootstrap';
 const BoardList = ({onMode}) => {
     const [boardList, setBoardList] = useState([]);
     useEffect(()=>{
@@ -39,7 +39,11 @@ const BoardList = ({onMode}) => {
                         {boardList.map(boards=>(
                         <tr key={boards.id}>
                             <td>{boards.id}</td>
-                            <td><Link to={`/board2/${boards.id}`}>{boards.title}</Link></td>
+                            <td><Link to={`/board2/${boards.id}`}>{boards.title}</Link> &nbsp;&nbsp;
+                            {boards.replyCount>0 &&
+                             <Badge bg="secondary">{boards.replyCount}</Badge> 
+                            }
+                             </td>
                             <td>{boards.name}</td>
                             <td>{boards.wdate}</td>
                         </tr>)

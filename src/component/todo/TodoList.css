@@ -1,0 +1,7 @@
+.TodoList inputSearch{
+    margin-bottom:10px;
+}
+.TodoList inputSearch:focus{
+    outline: none; 
+    border-bottom: 1px solid salmon;
+}

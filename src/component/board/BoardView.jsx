@@ -5,7 +5,6 @@ import axios from '../../lib/axiosCreate'
 import {Row, Col, Button, Card, Form} from 'react-bootstrap'
 import {AiFillHeart, AiFillDislike, AiOutlineHeart,AiOutlineDislike} from 'react-icons/ai'
 //react-icons  설치해야 사용 가능. npm i react-icons
-//https://react-icons.github.io/react-icons/
 const BoardView = (props) => {
   
     const { id } = useParams(); // /board2/:id와 동일한 변수명으로 데이터를 꺼낼 수 있습니다.

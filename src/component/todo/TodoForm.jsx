@@ -2,6 +2,8 @@ import React,{useRef, useState} from 'react'
 import {Col, Row} from 'react-bootstrap'
 import { BiSolidPencil } from "react-icons/bi";
 import "./TodoForm.css"
+import { FcPlus } from "react-icons/fc";
+import { SlRefresh } from "react-icons/sl";
 
 export default function TodoForm({onInsert}) {
     const inputRef=useRef()
@@ -36,8 +38,8 @@ export default function TodoForm({onInsert}) {
             onChange={onChange} onKeyDown={onKeyDown} />
         </Col>
         <Col xs={12} sm={4} md={4}>
-            <button className="btn btn-outline-info" onClick={onSubmit}>Add</button>
-            <button className="btn btn-outline-warning" onClick={onReset}>Reset</button>
+            <button className="btn btn-outline-info" onClick={onSubmit}><FcPlus /></button>
+            <button className="btn btn-outline-warning" onClick={onReset}><SlRefresh/></button>
         </Col>
         </Row>
     </div>

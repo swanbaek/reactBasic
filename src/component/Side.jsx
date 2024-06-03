@@ -31,7 +31,7 @@ export default function Side() {
       <ListGroup.Item as={Link} to="/ajax1/1">Rest Api1</ListGroup.Item>
       <ListGroup.Item as={Link} to="/ajax2?page=1&per_page=6">Rest Api2</ListGroup.Item>
       <ListGroup.Item as={Link} to="/ajax3">오늘 날씨</ListGroup.Item>
-      <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+      <ListGroup.Item as={Link} to="/todo">To Do</ListGroup.Item>
     </ListGroup>
 
     </Stack>

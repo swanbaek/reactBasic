@@ -26,12 +26,13 @@ export default function Side() {
       <ListGroup.Item as={Link} to="/event2">Event처리2</ListGroup.Item>
       <ListGroup.Item as={Link} to="/hook1">useEffect훅</ListGroup.Item>
       <ListGroup.Item as={Link} to="/hook2">useEffect훅-Timer</ListGroup.Item>
-      <ListGroup.Item as={Link} to="/hook3">useRef훅</ListGroup.Item>
+      <ListGroup.Item as={Link} to="/hook3">useRef훅</ListGroup.Item>      
       <ListGroup.Item as={Link} to="/hook4">useNavigate훅훅</ListGroup.Item>
+      <ListGroup.Item as={Link} to="/todo">To Do</ListGroup.Item>
       <ListGroup.Item as={Link} to="/ajax1/1">Rest Api1</ListGroup.Item>
       <ListGroup.Item as={Link} to="/ajax2?page=1&per_page=6">Rest Api2</ListGroup.Item>
       <ListGroup.Item as={Link} to="/ajax3">오늘 날씨</ListGroup.Item>
-      <ListGroup.Item as={Link} to="/todo">To Do</ListGroup.Item>
+      
     </ListGroup>
 
     </Stack>

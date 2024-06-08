@@ -36,7 +36,7 @@ JSX 실습
 2. useEffect훅 : UseEffectHook.jsx, Timer.jsx
 3. useRef훅: UseRefHook.jsx, Side.jsx/App.js 참고
 4. useNavigate훅: UseNavigateHook.jsx, Side.jsx/App.js 참고
-6. useContext 훅: Context API 살펴보기
+6. useContext 훅: Context API 살펴보기: component/context_api/App.jsx 1 ~ 4번 예제 살펴보기
 5. useCallback 훅
 7. # 한줄 메모장  또는 Todo 앱 만들어보기 (DB연동하지 않고 배열 이용해서 CRUD해보기)
 [5]=========================================================
@@ -50,13 +50,13 @@ JSX 실습
 4. Naver Open Api 연동해보기
 7. 실습. [학생들 실습 과제=> 뉴스 RSS받아 오늘의 뉴스 출력하기]
 [6]=========================================================
-# MySQL 연동하기
+# MySQL 연동하기 - MySQL Workbench 에서 SQL문 (CRUD 위주로) 실습
 # Node Server 또는 Spring boot로 백엔드 WAS서버 간단하게 만들기
 1.  게시판 CRUD ****
 2.  게시판 댓글 CRUD
 [7]=========================================================
-3.  회원가입
-4.  로그인 연동
+3.  회원가입 ==> 타입스크립트를 사용한 리액트에서 실습?
+4.  로그인 연동 ==> 타입스크립트를 사용한 리액트에서 실습?
 [8]=========================================================
 Redux 소개
 - 간단한 Redux 사용 예제-Counter 

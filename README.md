@@ -1,3 +1,6 @@
+# React App
+![image](https://github.com/swanbaek/reactBasic/assets/20180958/9af79c75-9494-4d1d-9a69-fa80c20abc38)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

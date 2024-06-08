@@ -15,6 +15,9 @@ import Example1 from './component/UseEffectHook';
 import TimerComp from './component/Timer';
 import UseRefHook from './component/UseRefHook';
 import UseNavigateHook from './component/UseNavigateHook';
+import UseMemoHook from './component/UseMemoHook';
+import UseCallbackHook from './component/UseCallbackHook';
+
 import UserOne from './component/UserOne';
 import PageNotFound from './component/PageNotFound';
 import UserAll from './component/UserAllPaging';
@@ -57,6 +60,8 @@ function App() {
                                 <Route path="/hook2" element={<TimerComp />} />
                                 <Route path="/hook3" element={<UseRefHook />} />
                                 <Route path="/hook4" element={<UseNavigateHook />} />
+                                <Route path="/hook5" element={<UseMemoHook />} />
+                                <Route path="/hook6" element={<UseCallbackHook />} />
                                 <Route path="/ajax1/:id" element={<UserOne />} />
                                 <Route path="/ajax2" element={<UserAll />} />
                                 <Route path="/ajax3" element={<OpenWeather />} />

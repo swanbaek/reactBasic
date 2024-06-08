@@ -37,9 +37,11 @@ JSX 실습
 3. useRef훅: UseRefHook.jsx, Side.jsx/App.js 참고
 4. useNavigate훅: UseNavigateHook.jsx, Side.jsx/App.js 참고
 6. useContext 훅: Context API 살펴보기: component/context_api/App.jsx 1 ~ 4번 예제 살펴보기
-5. useCallback 훅
-7. # 한줄 메모장  또는 Todo 앱 만들어보기 (DB연동하지 않고 배열 이용해서 CRUD해보기)
+7. useMemo훅 : component/UseMemoHook.jsx, App09.jsx
+8. useCallback 훅: component/UseCallbackHook.jsx, App10.jsx
 [5]=========================================================
+# 한줄 메모장  또는 Todo 앱 만들어보기 (DB연동하지 않고 배열 이용해서 CRUD해보기)
+
 # 리액트로 REST API이용하기
      [1] 데이터 source 가 배열일 경우 - 인 메모리 (데이터 휘발성)=> Todo App 실습
      [2] 데이터를 외부에서 제공하는 데이터를 받아올 경우 - open api data  (Ajax 이용, cors 지원되지 않을 경우 proxy필요) *****
@@ -48,7 +50,7 @@ JSX 실습
 2. fetch api 사용 : UserAll.jsx, Side.jsx/App.js참고
 3. axios 사용. OpenWeatherApi연동 : OpenWeather.jsx, Side.jsx/App.js참고
 4. Naver Open Api 연동해보기
-7. 실습. [학생들 실습 과제=> 뉴스 RSS받아 오늘의 뉴스 출력하기]
+5. 실습. [학생들 실습 과제=> 뉴스 RSS받아 오늘의 뉴스 출력하기]
 [6]=========================================================
 # MySQL 연동하기 - MySQL Workbench 에서 SQL문 (CRUD 위주로) 실습
 # Node Server 또는 Spring boot로 백엔드 WAS서버 간단하게 만들기

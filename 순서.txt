@@ -36,8 +36,8 @@ JSX 실습
 2. useEffect훅 : UseEffectHook.jsx, Timer.jsx
 3. useRef훅: UseRefHook.jsx, Side.jsx/App.js 참고
 4. useNavigate훅: UseNavigateHook.jsx, Side.jsx/App.js 참고
+6. useContext 훅: Context API 살펴보기
 5. useCallback 훅
-6. Context 
 7. # 한줄 메모장  또는 Todo 앱 만들어보기 (DB연동하지 않고 배열 이용해서 CRUD해보기)
 [5]=========================================================
 # 리액트로 REST API이용하기
@@ -59,7 +59,7 @@ JSX 실습
 4.  로그인 연동
 [8]=========================================================
 Redux 소개
-1. 간단한 Redux 사용 예제-Counter 
-2. 회원가입/로그인 리덕스 사용
+- 간단한 Redux 사용 예제-Counter 
+
 
 

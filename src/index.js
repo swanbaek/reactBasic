@@ -1,25 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+// import App from './App';
 // import App from './App00';
 // import App from './App00_1';
 // import App from './example/test'
+import App from './component/context_api/App4';
 import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 //index.html에 있는 id가 root인 요소를 찾아 root라는 상수에 할당. createRoot() =>리액트앱의 루트를 생성. 리액트 컴포넌트 트리의 루트로 설정함
-root.render(//위에서 생성한 루트에 컴포넌트를 렌더링함
-  // React.StrictMode 는 개발환경에서 잠재적 문제를 식별하도록 도와주는 도구이다. 
-  //하위 컴포넌트들을 엄격 모드로 감지. 오류를 검출하게 도움. 개발환경에서 사용되고 프로덕션 빌드에서는 무시된다.
-  //React.StrictMode : 리액트 도구. 자손 컴포넌트들을 엄격 모드로 감지하여 오류,경고 메시지를 보여줌. 프로덕션 빌드에서는 무시된다. 
-  <React.StrictMode>     
-    <App />
-  </React.StrictMode> 
+root.render(
+    //위에서 생성한 루트에 컴포넌트를 렌더링함
+    // React.StrictMode 는 개발환경에서 잠재적 문제를 식별하도록 도와주는 도구이다.
+    //하위 컴포넌트들을 엄격 모드로 감지. 오류를 검출하게 도움. 개발환경에서 사용되고 프로덕션 빌드에서는 무시된다.
+    //React.StrictMode : 리액트 도구. 자손 컴포넌트들을 엄격 모드로 감지하여 오류,경고 메시지를 보여줌. 프로덕션 빌드에서는 무시된다.
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function 
+// If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

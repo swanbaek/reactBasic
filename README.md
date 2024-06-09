@@ -1,5 +1,7 @@
 # React App
-![image](https://github.com/swanbaek/reactBasic/assets/20180958/9af79c75-9494-4d1d-9a69-fa80c20abc38)
+
+![image](https://github.com/swanbaek/reactBasic/assets/20180958/b3661965-09d2-4ea4-94dd-37bbc82e58a8)
+
 
 # Getting Started with Create React App
 

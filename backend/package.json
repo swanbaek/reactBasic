@@ -1,0 +1,21 @@
+{
+    "name": "testserver",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server3.js",
+        "dev": "nodemon server3.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^1.7.2",
+        "cors": "^2.8.5",
+        "express": "^4.19.2",
+        "json": "^11.0.0",
+        "mysql": "^2.18.1",
+        "nodemon": "^3.1.1"
+    }
+}

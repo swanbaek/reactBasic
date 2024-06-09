@@ -32,8 +32,18 @@ const BoardView = () => {
     };
 
     useEffect(() => {
-        getBoard();
-        getReplies();
+        const fetchData = async () => {
+            try {
+                //비동기적으로 수행하므로...게시글을 먼저 가져오고 댓글을 가져오려면 async, await를 사용
+                await getBoard();
+                await getReplies();
+            } catch (error) {
+                // 네트워크 오류 처리
+                console.error('네트워크 오류:', error);
+            }
+        };
+
+        fetchData();
     }, []);
 
     const onDelete = async () => {

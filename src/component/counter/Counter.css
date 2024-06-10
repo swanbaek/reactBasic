@@ -1,0 +1,31 @@
+.App {
+    padding: 2em;
+    text-align: center;
+}
+.View {
+    border: 2px solid #ddd;
+    margin: 1em auto;
+    padding: 1em;
+    width: 60%;
+}
+.App .count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    margin: 1em auto;
+    background-color: cadetblue;
+    text-align: center;
+    font-size: 4em;
+    font-weight: bold;
+    color: maroon;
+    border-radius: 50%;
+}
+.Controller button {
+    width: 80px;
+    height: 40px;
+    border: 1px solid #ddd;
+    margin: 3px;
+}

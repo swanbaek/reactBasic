@@ -6,11 +6,13 @@ import './index.css';
 // import App from './App00_1';
 // import App from './example/test'
 // import App from './component/context_api/App4';
-import App from './component/counter/App';
+// import App from './component/counter/App';
+import App from './App08_3';
 // import App from './App10';
 
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'react-image-gallery/styles/css/image-gallery.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 //index.html에 있는 id가 root인 요소를 찾아 root라는 상수에 할당. createRoot() =>리액트앱의 루트를 생성. 리액트 컴포넌트 트리의 루트로 설정함

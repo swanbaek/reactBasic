@@ -7,8 +7,9 @@ import './index.css';
 // import App from './example/test'
 // import App from './component/context_api/App4';
 // import App from './component/counter/App';
-import App from './App08_3';
+// import App from './App08_3';
 // import App from './App10';
+import App from './component/table/App';
 
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';

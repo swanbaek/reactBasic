@@ -1,6 +1,7 @@
 import React from 'react';
 import { Stack, Button, ListGroup } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
+
 export default function Side() {
     const navigate = useNavigate();
 
@@ -50,6 +51,13 @@ export default function Side() {
                 <ListGroup.Item as={Link} to="/hook6">
                     useCallback훅
                 </ListGroup.Item>
+                <ListGroup.Item as={Link} to="/memo1">
+                    React.memo
+                </ListGroup.Item>
+                <ListGroup.Item as={Link} to="/memo2">
+                    React.memo
+                </ListGroup.Item>
+
                 <ListGroup.Item as={Link} to="/todo">
                     To Do
                 </ListGroup.Item>

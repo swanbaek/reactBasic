@@ -17,6 +17,7 @@ import UseRefHook from './component/UseRefHook';
 import UseNavigateHook from './component/UseNavigateHook';
 import UseMemoHook from './component/UseMemoHook';
 import UseCallbackHook from './component/UseCallbackHook';
+import ReactMemo from './component/reactmemo/ReactMemo';
 
 import UserOne from './component/UserOne';
 import PageNotFound from './component/PageNotFound';
@@ -62,12 +63,14 @@ function App() {
                                 <Route path="/hook4" element={<UseNavigateHook />} />
                                 <Route path="/hook5" element={<UseMemoHook />} />
                                 <Route path="/hook6" element={<UseCallbackHook />} />
+                                <Route path="/memo1" element={<ReactMemo />} />
                                 <Route path="/ajax1/:id" element={<UserOne />} />
                                 <Route path="/ajax2" element={<UserAll />} />
                                 <Route path="/ajax3" element={<OpenWeather />} />
                                 <Route path="/todo" element={<TodoApp />} />
                                 <Route path="/board2" element={<BoardApp />} />
                                 <Route path="/board2/:id" element={<BoardView />} />
+
                                 <Route path="/boardEdit/:id" element={<BoardModify />} />
                                 <Route path="*" element={<PageNotFound />} />
 

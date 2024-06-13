@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import TodoListItem from './TodoListItem';
 import './TodoList.css';
@@ -14,22 +14,47 @@ export default function TodoList({ todo, onDelete, onChangeDone }) {
         return search === ''
             ? todo
             : todo.filter((item, i) => {
-                  return item.content.indexOf(search) !== -1;
+                  //return item.content.indexOf(search) !== -1;
+                  return item.content.toLowerCase().includes(search.toLowerCase());
               });
     };
+    //useMemo훅: 특정 계산 결과를 메모이제이션 하고 재 계산을 방지하기 위해 사용한다
+    const aggregate = useMemo(() => {
+        const totalCount = todo.length;
+        const doneCount = todo.filter((it) => it.isDone).length;
+        const notDoneCount = totalCount - doneCount;
+
+        return { totalCount, doneCount, notDoneCount };
+    }, [todo]);
+    /**
+     * aggregate는 useMemo 훅을 사용하여 메모이제이션된 값이기 때문에
+     * 함수가 아니다. 함수 호출 형태가 아니라 값으로 사용해야 한다.
+     *
+     */
+    const { totalCount, doneCount, notDoneCount } = aggregate;
+    //구조분해 할당을 통해 접근
+
     return (
         <div className="TodoList">
-            <h4>
+            <h4 className="text-primary">
                 TodoList <BiListCheck />{' '}
             </h4>
+            <Row>
+                <Col xs={12} sm={8} md={8}>
+                    <div className="alert alert-success my-4">
+                        <div>총 개수 : {totalCount}</div>
+                        <div>완료된 일: {doneCount}</div>
+                        <div>해야 할 일: {notDoneCount}</div>
+                    </div>
+                </Col>
+            </Row>
             <Row>
                 <Col xs={12} sm={8} md={8}>
                     <input
                         name="search"
                         value={search}
-                        className="inputSearch"
+                        className="inputSearch form-control"
                         placeholder="검색어를 입력하세요"
-                        className="form-control"
                         onChange={searchHandler}
                     />
                 </Col>

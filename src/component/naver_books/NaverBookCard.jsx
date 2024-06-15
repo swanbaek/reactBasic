@@ -8,6 +8,8 @@ export default function NaverBookCard(props) {
     if (title.length > len) {
         title_ellipsis = title.substring(0, len) + '...';
     }
+    let date = pubdate.substring(0, 4) + '-' + pubdate.substring(4, 6) + '-' + pubdate.substring(6);
+
     return (
         <Card>
             <Link to={link}>
@@ -20,7 +22,7 @@ export default function NaverBookCard(props) {
                 <Card.Text>
                     <div>가격: {discount} 원 </div>
                     <div>저자: {author}</div>
-                    <div>출판일:{pubdate}</div>
+                    <div>출판일: {date}</div>
                 </Card.Text>
             </Card.Body>
         </Card>

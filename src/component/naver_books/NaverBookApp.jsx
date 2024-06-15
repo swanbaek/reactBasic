@@ -84,12 +84,19 @@ export default function NaverBookApp() {
     const fetchData = async (value, start) => {
         let url = `/api/books?query=${value}&start=${start}`;
         console.log(start, '====', url);
-        await axios.get(url).then((res) => {
-            console.log(JSON.stringify(res));
-            setTotal(res.data.total);
-            setBookList(res.data.items);
-            setStart(start + pageSize);
-        });
+        await axios
+            .get(url)
+            .then((res) => {
+                console.log(JSON.stringify(res));
+                setTotal(res.data.total);
+                setBookList(res.data.items);
+                // setStart(start + pageSize);
+            })
+            .catch((err) => {
+                if (err.response && err.response.status === 400) {
+                    alert('더이상 데이터가 없습니다.');
+                }
+            });
     };
 
     return (
@@ -122,9 +129,9 @@ export default function NaverBookApp() {
                     </div>
                 )}
                 {bookList &&
-                    bookList.map((book) => (
-                        <Col key={book.isbn} md={3} className="mx-auto">
-                            <NaverBookCard {...book} />
+                    bookList.map((book, i) => (
+                        <Col key={i} md={3} className="mx-auto">
+                            <NaverBookCard key={book.isbn} {...book} />
                         </Col>
                     ))}
             </Row>

@@ -8,10 +8,10 @@ export default function NaverBookApp() {
     const [query, setQuery] = useState('');
     const [bookList, setBookList] = useState([]);
     const [total, setTotal] = useState('');
-    const [start, setStart] = useState(1);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [pageCount, setPageCount] = useState(1);
-    const [pageRangeStart, setPageRangeStart] = useState(1);
+    const [start, setStart] = useState(1); //네이버에 요청 보낼때 사용할 start 데이터
+    const [currentPage, setCurrentPage] = useState(1); //현재 보여줄 페이지 번호
+    const [pageCount, setPageCount] = useState(1); //총 페이지수 =>total과 pageSize로 연산하여 구한다
+    const [pageRangeStart, setPageRangeStart] = useState(1); //페이징 블럭 처리에서 사용할 데이터
     const pageSize = 12;
 
     const pageHandler = async (page) => {
@@ -26,6 +26,9 @@ export default function NaverBookApp() {
         setPageCount(cnt);
         let navi = [];
         let end = Math.min(pageRangeStart + 9, cnt);
+        //페이징 블럭을 10개단위로 처리할 예정
+        //총 페이지 수(cnt)가 10보다 작으면 페이지수(cnt)값을 end로,
+        //총 페이지수(cnt)가 10개를 넘어가면 pageRangeStart+9 값을 end로 설정한다.
 
         for (let i = pageRangeStart; i <= end; i++) {
             navi.push(
@@ -54,6 +57,8 @@ export default function NaverBookApp() {
             );
         }
         if (pageRangeStart > 1) {
+            //pageRangeStart가 1보다 큰 경우(가령 Next를 누르면 11이 됨==> 이 경우는 이전 페이징 블럭이 있단 얘기)
+            //navi배열 맨 앞에 이전(Prev) 버튼을 끼워 넣는다.
             navi.unshift(
                 <Button
                     className="xs mx-1"

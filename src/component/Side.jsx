@@ -70,6 +70,9 @@ export default function Side() {
                 <ListGroup.Item as={Link} to="/ajax3">
                     오늘 날씨
                 </ListGroup.Item>
+                <ListGroup.Item as={Link} to="/ajax4">
+                    Naver 도서 검색
+                </ListGroup.Item>
             </ListGroup>
         </Stack>
     );

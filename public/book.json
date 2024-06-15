@@ -1,0 +1,30 @@
+{
+    "lastBuildDate": "Sat, 15 Jun 2024 12:47:07 +0900",
+    "total": 140,
+    "start": 1,
+    "display": 10,
+    "items": [
+        {
+            "title": "React Key Concepts (Consolidate your knowledge of React’s core features)",
+            "link": "https://search.shopping.naver.com/book/catalog/37063179441",
+            "image": "https://shopping-phinf.pstatic.net/main_3706317/37063179441.20230301071641.jpg",
+            "author": "Maximilian Schwarzmuller",
+            "discount": "59000",
+            "publisher": "Packt Publishing",
+            "pubdate": "20221226",
+            "isbn": "9781803234502",
+            "description": "Build the understanding, skills, and experience to confidently implement React in your next project with this fast-paced overview of React fundamentals.\n\nPurchase of the print or Kindle book includes a free eBook in PDF format."
+        },
+        {
+            "title": "React.Js Essentials",
+            "link": "https://search.shopping.naver.com/book/catalog/32532024685",
+            "image": "https://shopping-phinf.pstatic.net/main_3253202/32532024685.20220523022452.jpg",
+            "author": "Artemij Fedosejev",
+            "discount": "25000",
+            "publisher": "Packt Publishing",
+            "pubdate": "20150831",
+            "isbn": "9781783551620",
+            "description": "GCSE Music Edexcel Complete Revision & Practice (with Audio CD) - for the Grade 9-1 Course"
+        }
+    ]
+}

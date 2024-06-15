@@ -1,0 +1,100 @@
+import React, { useState, useMemo } from 'react';
+import { Button, Container, Row, Col, Form } from 'react-bootstrap';
+import NaverBookForm from './NaverBookForm';
+import NaverBookCard from './NaverBookCard';
+import axios from 'axios';
+
+export default function NaverBookApp() {
+    const [query, setQuery] = useState('');
+    const [bookList, setBookList] = useState([]);
+    // const [book, setBook] = useState({ title: 'react', price: 20000 });
+    const [total, setTotal] = useState('');
+    const [start, setStart] = useState(1);
+    const [pageCount, setPageCount] = useState(1);
+    let pageSize = 12;
+    const pageHandler = async (page) => {
+        // alert(page);
+        let tmpStart = (page - 1) * pageSize + 1;
+        await setStart(tmpStart);
+        fetchData(query, tmpStart);
+    };
+    const getPageNavi = useMemo(() => {
+        let cnt = (total - 1) / pageSize + 1;
+        setPageCount(cnt);
+        let navi = [];
+        let end = cnt > 10 ? 10 : cnt;
+
+        for (let i = 1; i <= end; i++) {
+            navi.push(
+                <Button
+                    className="xs"
+                    onClick={() => {
+                        pageHandler(i);
+                    }}
+                >
+                    {i}
+                </Button>
+            );
+        }
+        if (cnt > end) {
+            navi.push(<Button className="xs">Next</Button>);
+        }
+        return navi;
+    }, [total]);
+
+    const onFind = async (value) => {
+        await setQuery(value);
+        // let url = `http://localhost:3000/book.json`;
+        // let url = `/api/books?query=${query}`;//query를 넣어주면 비동기작업때문에 query값이 안들어가는 경우가 생긴다
+        fetchData(value, 1);
+    };
+
+    const fetchData = async (value, start) => {
+        let url = `/api/books?query=${value}&start=${start}`; //이부분에 검색어를 value로 넣어주자
+        console.log(start, '====', url);
+        await axios.get(url).then((res) => {
+            console.log(JSON.stringify(res));
+            setTotal((total) => (total = res.data.total));
+            setBookList(res.data.items);
+            setStart((start) => start + pageSize);
+        });
+    };
+    return (
+        <Container>
+            <h1 className="text-success text-center my-5"> Naver Books</h1>
+            <NaverBookForm onFind={onFind} />
+            <Row className="mt-4">
+                <Col md={10} className="mx-auto">
+                    <h3>
+                        {pageCount > 1 && getPageNavi}
+                        다음 start :{start}
+                        검색어 :<span className="text-primary mx-2">{query}</span>
+                        <span className="text-danger mx-2">{total}개</span>
+                    </h3>
+                </Col>
+            </Row>
+            <Row className="mt-4">
+                {start > total + pageSize && query && (
+                    <div className="alert alert-danger">
+                        <h3>더이상 없습니다</h3>
+                        <Button
+                            variant="success"
+                            onClick={async () => {
+                                await setStart(1);
+                                onFind(query);
+                            }}
+                        >
+                            처음으로..
+                        </Button>
+                    </div>
+                )}
+                {bookList &&
+                    bookList.map((book, i) => (
+                        <Col md={3} className="mx-auto">
+                            <NaverBookCard key={book.isbn} {...book} />
+                        </Col>
+                    ))}
+            </Row>
+        </Container>
+    );
+}

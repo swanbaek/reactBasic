@@ -28,7 +28,7 @@ import TodoApp from './component/todo/TodoApp';
 import BoardApp from './component/board/BoardApp';
 import BoardView from './component/board/BoardView';
 import BoardModify from './component/board/BoardModify';
-
+import NaverBookApp from './component/naver_books/NaverBookApp';
 import { Container, Row, Col } from 'react-bootstrap';
 //npm i --s react-router-dom
 function App() {
@@ -72,6 +72,8 @@ function App() {
                                 <Route path="/board2/:id" element={<BoardView />} />
 
                                 <Route path="/boardEdit/:id" element={<BoardModify />} />
+
+                                <Route path="/ajax4" element={<NaverBookApp />} />
                                 <Route path="*" element={<PageNotFound />} />
 
                                 <Route />

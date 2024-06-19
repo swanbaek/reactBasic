@@ -114,19 +114,51 @@ app.post('/api/login', (req, res) => {
     });
 });
 
+// 게시글 작성
+app.post('/boardWrite', (req, res) => {
+    const { title, name, content } = req.body;
+    if (!title || !name || !content) {
+        return res.status(400).send('제목, 이름, 내용 모두 입력해야 해요');
+    }
+    const sql = 'INSERT INTO react_board SET ?';
+    const boardData = { title, name, content };
+
+    pool.getConnection((err, connection) => {
+        if (err) return res.status(500).send(err);
+        connection.query(sql, boardData, (err, result) => {
+            connection.release();
+            if (err) return res.status(500).send(err);
+            res.json({ result: 'ok' });
+        });
+    });
+});
+
 // 게시글 목록 가져오기
 app.get('/boardList', (req, res) => {
+    let offset = req.query.offset;
     // const sql = `SELECT id, title, name, content, DATE_FORMAT(wdate,'%Y-%m-%d') wdate FROM react_board ORDER BY id DESC`;
     const sql = `SELECT id, title, name, content,   DATE_FORMAT(wdate,'%Y-%m-%d') wdate,
                 (select count(num) from  react_boardReply where board_id = a.id )  replyCount 
-                FROM react_board a  ORDER BY id DESC`;
-
+                FROM react_board a  ORDER BY id DESC limit 5 offset ${offset}  `;
+    console.log(sql);
     pool.getConnection((err, connection) => {
         if (err) return res.status(500).send(err);
         connection.query(sql, (err, data) => {
             connection.release();
             if (err) return res.status(500).send(err);
             res.send(data);
+        });
+    });
+});
+app.get('/boardTotalCount', (req, res) => {
+    const sql = `select count(id) count from react_board`;
+    pool.getConnection((err, connection) => {
+        if (err) return res.status(500).send(err);
+        connection.query(sql, (err, data) => {
+            connection.release();
+            if (err) return res.status(500).send(err);
+            console.log(data);
+            res.json({ totalCount: data[0].count });
         });
     });
 });

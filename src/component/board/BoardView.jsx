@@ -3,12 +3,14 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Row, Col, Button, Card, Form, Modal } from 'react-bootstrap';
 import { AiFillHeart, AiFillDislike } from 'react-icons/ai';
-
+import ReplyList from './ReplyList';
+import ReplyForm from './ReplyForm';
+import ReplyEditForm from './ReplyEditForm';
 const BoardView = () => {
     const { id } = useParams();
     const [board, setBoard] = useState({});
     const [replies, setReplies] = useState([]);
-    const [newReply, setNewReply] = useState({ writer: '', memo: '' });
+
     const [editingReply, setEditingReply] = useState(null);
     const [showEditModal, setShowEditModal] = useState(false);
     const navigate = useNavigate();
@@ -53,16 +55,9 @@ const BoardView = () => {
         }
     };
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setNewReply({ ...newReply, [name]: value });
-    };
-
-    const addReply = async (e) => {
-        e.preventDefault();
+    const addReply = async (newReply) => {
         try {
             await axios.post(`/boards/${id}/replies`, newReply);
-            setNewReply({ writer: '', memo: '' });
             getReplies();
         } catch (err) {
             console.error('댓글 추가 Error ', err);
@@ -130,98 +125,36 @@ const BoardView = () => {
                             Created on {board.wdate} by {board.name}
                         </Card.Footer>
                     </Card>
-
+                </Col>
+            </Row>
+            <Row className="my-5">
+                <Col className="px-5">
                     <Button className="btn mt-4" variant="secondary" onClick={() => navigate('/board2')}>
                         {' '}
                         Board List전체출력{' '}
                     </Button>
 
-                    <h2 className="mt-5">댓글영역</h2>
-                    <ul className="list-group">
-                        {replies.map((reply) => (
-                            <li
-                                key={reply.num}
-                                className="list-group-item d-flex justify-content-between align-items-center"
-                            >
-                                <div>
-                                    <strong>{reply.writer}:</strong> {reply.memo}
-                                    <br />
-                                    <small>{reply.reg_date}</small>
-                                </div>
-                                <div>
-                                    <Button
-                                        variant="info"
-                                        size="sm"
-                                        className="mx-1"
-                                        onClick={() => startEditingReply(reply)}
-                                    >
-                                        댓글Edit
-                                    </Button>
-                                    <Button variant="danger" size="sm" onClick={() => deleteReply(reply.num)}>
-                                        댓글Delete
-                                    </Button>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-
-                    <h3 className="mt-4"> 댓글추가 </h3>
-                    <Form onSubmit={addReply}>
-                        <Form.Group className="mb-3">
-                            <Form.Label>작성자</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="writer"
-                                value={newReply.writer}
-                                onChange={handleInputChange}
-                                required
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label>댓글</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="memo"
-                                value={newReply.memo}
-                                onChange={handleInputChange}
-                                required
-                            />
-                        </Form.Group>
-                        <Button type="submit">댓글추가버튼</Button>
-                    </Form>
+                    <h3 className="mt-5">댓글영역</h3>
+                    <ReplyList replies={replies} startEditingReply={startEditingReply} deleteReply={deleteReply} />
                 </Col>
             </Row>
-
-            <Modal show={showEditModal} onHide={() => setShowEditModal(false)}>
-                <Modal.Header closeButton>
-                    <Modal.Title> 댓글수정</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form onSubmit={updateReply}>
-                        <Form.Group className="mb-3">
-                            <Form.Label>작성자</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="writer"
-                                value={editingReply?.writer || ''}
-                                onChange={handleEditInputChange}
-                                required
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label>댓글</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="memo"
-                                value={editingReply?.memo || ''}
-                                onChange={handleEditInputChange}
-                                required
-                            />
-                        </Form.Group>
-                        <Button type="submit"> 댓글수정버튼</Button>
-                    </Form>
-                </Modal.Body>
-            </Modal>
+            <Row className="my-5">
+                <Col className="px-5">
+                    <h3 className="mt-4"> 댓글추가 </h3>
+                    <ReplyForm addReply={addReply} />
+                </Col>
+            </Row>
+            <Row className="my-5">
+                <Col className="px-5">
+                    <ReplyEditForm
+                        showEditModal={showEditModal}
+                        setShowEditModal={setShowEditModal}
+                        updateReply={updateReply}
+                        editingReply={editingReply}
+                        handleEditInputChange={handleEditInputChange}
+                    />
+                </Col>
+            </Row>
         </div>
     );
 };

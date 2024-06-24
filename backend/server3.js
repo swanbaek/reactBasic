@@ -2,7 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const cors = require('cors');
-
+const static = require('serve-static'),
+    path = require('path');
 // Express 서버를 사용하기 위한 앱 생성
 const app = express();
 
@@ -25,6 +26,7 @@ const pool = mysql.createPool({
 app.listen(PORT, () => {
     console.log(`Server2 on: http://localhost:${PORT}`);
 });
+app.use('/', static(path.join(__dirname, 'public')));
 
 // 회원 가입인 경우
 app.post('/api/user', (req, res) => {
